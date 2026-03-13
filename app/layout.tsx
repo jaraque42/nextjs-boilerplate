@@ -21,14 +21,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   )
 }
-```
-
----
-
-## 🚀 Flujo de trabajo desde la web
-```
-1. Abres GitHub → tu repositorio
-2. Navegas a la carpeta app/
-3. Editas o creas el archivo
-4. Pulsas "Commit changes"
-5. Vercel despliega automáticamente en ~30 segundos

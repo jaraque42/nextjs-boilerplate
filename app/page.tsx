@@ -5,7 +5,7 @@ export default function Home() {
       <p className="text-lg text-gray-600 mb-8 text-center max-w-xl">
         Describe aquí brevemente tu servicio y propuesta de valor.
       </p>
-      
+      <a
         href="/reservas"
         className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800"
       >
