@@ -1,28 +1,33 @@
 export default function ReservasPage() {
   const calUrl =
-    process.env.NEXT_PUBLIC_CAL_COM_URL ??
-    "https://cal.com/juan-araque"
+    process.env.NEXT_PUBLIC_CAL_COM_URL ?? "https://cal.com/juan-araque"
 
   return (
-    <main className="min-h-screen p-8">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-3">Agenda una entrevista</h1>
-        <p className="text-gray-600 mb-6">
-          Elige un horario para tu llamada y revisamos tu proyecto juntos.
-        </p>
+    <main className="min-h-screen px-6 pb-24 pt-16">
+      <div className="mx-auto max-w-5xl">
+        <div className="mb-10">
+          <p className="text-xs uppercase tracking-[0.25em] text-white/50">
+            Reservas
+          </p>
+          <h1 className="mt-3 text-3xl font-semibold text-white">
+            Agenda una entrevista
+          </h1>
+          <p className="mt-3 text-white/60">
+            Elige un horario para tu llamada y revisamos tu proyecto juntos.
+          </p>
+        </div>
 
-        <div className="border rounded-2xl overflow-hidden">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-4">
           <iframe
             src={calUrl}
-            className="w-full h-[720px]"
+            className="h-[720px] w-full rounded-2xl"
             title="Reservas"
           />
         </div>
 
-        <p className="text-sm text-gray-500 mt-4">
-          Configura tu enlace en la variable de entorno
-          {" "}
-          <code className="px-1 py-0.5 bg-gray-100 rounded">
+        <p className="mt-4 text-sm text-white/50">
+          Puedes actualizar el enlace con la variable de entorno
+          <code className="ml-2 rounded bg-white/10 px-2 py-1 text-xs">
             NEXT_PUBLIC_CAL_COM_URL
           </code>
           .

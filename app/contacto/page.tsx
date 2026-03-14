@@ -1,30 +1,58 @@
 export default function Contacto() {
   return (
-    <main className="max-w-lg mx-auto p-8">
-      <h1 className="text-3xl font-bold mb-8">Contacto</h1>
-      <form className="flex flex-col gap-4">
-        <input
-          type="text"
-          placeholder="Tu nombre"
-          className="border rounded-lg p-3 w-full"
-        />
-        <input
-          type="email"
-          placeholder="Tu email"
-          className="border rounded-lg p-3 w-full"
-        />
-        <textarea
-          placeholder="Tu mensaje"
-          rows={5}
-          className="border rounded-lg p-3 w-full"
-        />
-        <button
-          type="submit"
-          className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800"
-        >
-          Enviar mensaje
-        </button>
-      </form>
+    <main className="min-h-screen px-6 pb-24 pt-16">
+      <div className="mx-auto max-w-4xl">
+        <div className="mb-10">
+          <p className="text-xs uppercase tracking-[0.25em] text-white/50">
+            Contacto
+          </p>
+          <h1 className="mt-3 text-3xl font-semibold text-white">
+            Conversemos sobre tu proyecto
+          </h1>
+          <p className="mt-3 text-white/60">
+            Cuéntanos lo esencial y te respondemos con una propuesta clara.
+          </p>
+        </div>
+
+        <form className="grid gap-4 rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div className="grid gap-1">
+            <label className="text-xs uppercase tracking-[0.2em] text-white/50">
+              Nombre
+            </label>
+            <input
+              type="text"
+              placeholder="Tu nombre"
+              className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40"
+            />
+          </div>
+          <div className="grid gap-1">
+            <label className="text-xs uppercase tracking-[0.2em] text-white/50">
+              Email
+            </label>
+            <input
+              type="email"
+              placeholder="Tu email"
+              className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40"
+            />
+          </div>
+          <div className="grid gap-1">
+            <label className="text-xs uppercase tracking-[0.2em] text-white/50">
+              Mensaje
+            </label>
+            <textarea
+              placeholder="Tu mensaje"
+              rows={5}
+              className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40"
+            />
+          </div>
+          <button
+            type="submit"
+            className="rounded-full bg-emerald-300 px-6 py-3 text-sm font-semibold text-black"
+          >
+            Enviar mensaje
+          </button>
+        </form>
+      </div>
     </main>
   )
 }

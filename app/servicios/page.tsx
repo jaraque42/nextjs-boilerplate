@@ -1,20 +1,53 @@
 export default function Servicios() {
   const servicios = [
-    { titulo: "Servicio 1", descripcion: "Describe qué incluye este servicio." },
-    { titulo: "Servicio 2", descripcion: "Describe qué incluye este servicio." },
-    { titulo: "Servicio 3", descripcion: "Describe qué incluye este servicio." },
+    {
+      titulo: "Landing de alto impacto",
+      descripcion:
+        "Arquitectura de conversión, copy IA y diseño premium para leads.",
+    },
+    {
+      titulo: "Web corporativa escalable",
+      descripcion:
+        "Estructura modular, SEO técnico y performance optimizada.",
+    },
+    {
+      titulo: "Automatización + IA",
+      descripcion:
+        "Chatbot, propuestas automáticas y flujos de captación inteligentes.",
+    },
   ]
 
   return (
-    <main className="max-w-4xl mx-auto p-8">
-      <h1 className="text-3xl font-bold mb-8">Mis servicios</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {servicios.map((s) => (
-          <div key={s.titulo} className="border rounded-xl p-6">
-            <h2 className="text-xl font-semibold mb-2">{s.titulo}</h2>
-            <p className="text-gray-600">{s.descripcion}</p>
-          </div>
-        ))}
+    <main className="min-h-screen px-6 pb-24 pt-16">
+      <div className="mx-auto max-w-5xl">
+        <div className="mb-10">
+          <p className="text-xs uppercase tracking-[0.25em] text-white/50">
+            Servicios
+          </p>
+          <h1 className="mt-3 text-3xl font-semibold text-white">
+            Soluciones para vender más con tu web
+          </h1>
+          <p className="mt-3 text-white/60">
+            Planes flexibles y adaptados a tu modelo de negocio.
+          </p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {servicios.map((s) => (
+            <div
+              key={s.titulo}
+              className="rounded-3xl border border-white/10 bg-white/5 p-6 text-white/80"
+            >
+              <h2 className="text-lg font-semibold text-white">{s.titulo}</h2>
+              <p className="mt-3 text-sm text-white/60">{s.descripcion}</p>
+              <a
+                href="/reservas"
+                className="mt-6 inline-flex text-sm font-semibold text-emerald-200"
+              >
+                Agendar entrevista
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
     </main>
   )
