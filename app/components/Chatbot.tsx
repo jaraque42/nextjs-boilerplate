@@ -90,7 +90,7 @@ export default function Chatbot() {
     ].join("\n")
   }
 
-  function handleSubmit(event: React.FormEvent) {
+  async function handleSubmit(event: React.FormEvent) {
     event.preventDefault()
 
     if (!currentQuestion) return
