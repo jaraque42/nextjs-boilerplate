@@ -44,7 +44,6 @@ export default function Chatbot() {
   const [input, setInput] = useState("")
   const [messages, setMessages] = useState<Message[]>([])
   const [answers, setAnswers] = useState<Answers>({})
-  const [loading, setLoading] = useState(false)
   const [step, setStep] = useState(0)
   const [done, setDone] = useState(false)
 
@@ -56,7 +55,7 @@ export default function Chatbot() {
     setMessages([
       {
         role: "bot",
-        text: "Hola, soy el asistente de Juan. Vamos a preparar tu propuesta.",
+        text: "Hola, soy el asistente de Juan. Vamos a preparar tu agenda.",
       },
       {
         role: "bot",
@@ -65,9 +64,9 @@ export default function Chatbot() {
     ])
   }, [open, messages.length])
 
-  function buildProposal(payload: Answers) {
+  function buildSummary(payload: Answers) {
     return [
-      "Resumen de tu proyecto:",
+      "Resumen de tu solicitud:",
       `- Tipo de negocio: ${payload.tipoNegocio}`,
       `- Número de páginas: ${payload.paginas}`,
       `- Idioma: ${payload.idioma}`,
@@ -75,21 +74,22 @@ export default function Chatbot() {
       `- Plazo: ${payload.plazo}`,
       `- Presupuesto: ${payload.presupuesto}`,
       "",
-      "Plan sugerido:",
-      "- Discovery y propuesta de estructura.",
-      "- Diseño UI moderno alineado a tu marca.",
-      "- Implementación con rendimiento optimizado.",
-      "- Revisión final y publicación.",
-      "",
-      "Siguientes pasos:",
       "Agenda tu entrevista en /reservas",
     ].join("\n")
   }
 
-  async function handleSubmit(event: React.FormEvent) {
+  function handleSubmit(event: React.FormEvent) {
     event.preventDefault()
 
-    if (!input.trim() || !currentQuestion) return
+    if (!currentQuestion) return
+
+    if (!input.trim()) {
+      setMessages((prev) => [
+        ...prev,
+        { role: "bot", text: "Escribe una respuesta para continuar." },
+      ])
+      return
+    }
 
     const value = input.trim()
     setInput("")
@@ -109,32 +109,23 @@ export default function Chatbot() {
       return
     }
 
-    setLoading(true)
-    setMessages((prev) => [
-      ...prev,
-      { role: "bot", text: "Genial, preparando tu propuesta..." },
-    ])
-
     const finalPayload = { ...answers, [currentQuestion.key]: value }
-    const proposal = buildProposal(finalPayload)
+    const summary = buildSummary(finalPayload)
 
     setMessages((prev) => [
       ...prev,
-      { role: "bot", text: proposal },
-      {
-        role: "bot",
-        text: "Si quieres, agenda tu entrevista aqui: /reservas",
-      },
+      { role: "bot", text: summary },
     ])
     setDone(true)
-    setLoading(false)
+    setTimeout(() => {
+      window.location.href = "/reservas"
+    }, 300)
   }
 
   function handleReset() {
     setMessages([])
     setAnswers({})
     setInput("")
-    setLoading(false)
     setStep(0)
     setDone(false)
   }
@@ -146,10 +137,10 @@ export default function Chatbot() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-white/50">
-                Asistente IA
+                Asistente
               </p>
               <p className="text-sm text-white/80">
-                Te ayudo a preparar tu propuesta
+                Agenda tu entrevista
               </p>
             </div>
             <button
@@ -174,11 +165,6 @@ export default function Chatbot() {
                 {message.text}
               </div>
             ))}
-            {loading && (
-              <div className="mr-auto w-fit rounded-2xl bg-white/10 px-3 py-2 text-white/70">
-                Pensando...
-              </div>
-            )}
           </div>
 
           <form onSubmit={handleSubmit} className="mt-4 grid gap-2">
@@ -186,17 +172,26 @@ export default function Chatbot() {
               value={input}
               onChange={(event) => setInput(event.target.value)}
               placeholder={currentQuestion?.placeholder ?? "Escribe tu mensaje"}
-              disabled={loading || done}
+              disabled={done}
               className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/40 disabled:opacity-60"
             />
             <button
               type="submit"
-              disabled={loading || !currentQuestion || done}
+              disabled={done}
               className="rounded-full bg-emerald-300 px-3 py-2 text-xs font-semibold text-black disabled:opacity-60"
             >
               Enviar
             </button>
           </form>
+
+          {done && (
+            <a
+              href="/reservas"
+              className="mt-3 inline-flex justify-center rounded-full bg-white px-4 py-2 text-xs font-semibold text-black"
+            >
+              Agendar entrevista
+            </a>
+          )}
         </div>
       )}
 
@@ -205,7 +200,7 @@ export default function Chatbot() {
         onClick={() => setOpen((prev) => !prev)}
         className="flex items-center gap-2 rounded-full border border-white/10 bg-emerald-300 px-4 py-3 text-xs font-semibold text-black shadow-lg"
       >
-        {open ? "Cerrar" : "Chat IA"}
+        {open ? "Cerrar" : "Chat"}
       </button>
     </div>
   )
