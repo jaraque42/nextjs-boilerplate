@@ -46,6 +46,7 @@ export default function Chatbot() {
   const [answers, setAnswers] = useState<Answers>({})
   const [loading, setLoading] = useState(false)
   const [step, setStep] = useState(0)
+  const [done, setDone] = useState(false)
 
   const currentQuestion = useMemo(() => questions[step], [step])
 
@@ -63,6 +64,27 @@ export default function Chatbot() {
       },
     ])
   }, [open, messages.length])
+
+  function buildProposal(payload: Answers) {
+    return [
+      "Resumen de tu proyecto:",
+      `- Tipo de negocio: ${payload.tipoNegocio}`,
+      `- Número de páginas: ${payload.paginas}`,
+      `- Idioma: ${payload.idioma}`,
+      `- Objetivo: ${payload.objetivo}`,
+      `- Plazo: ${payload.plazo}`,
+      `- Presupuesto: ${payload.presupuesto}`,
+      "",
+      "Plan sugerido:",
+      "- Discovery y propuesta de estructura.",
+      "- Diseño UI moderno alineado a tu marca.",
+      "- Implementación con rendimiento optimizado.",
+      "- Revisión final y publicación.",
+      "",
+      "Siguientes pasos:",
+      "Agenda tu entrevista en /reservas",
+    ].join("\n")
+  }
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault()
@@ -87,44 +109,25 @@ export default function Chatbot() {
       return
     }
 
-    setStep(questions.length)
     setLoading(true)
     setMessages((prev) => [
       ...prev,
       { role: "bot", text: "Genial, preparando tu propuesta..." },
     ])
 
-    try {
-      const response = await fetch("/api/propuesta", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...answers, [currentQuestion.key]: value }),
-      })
+    const finalPayload = { ...answers, [currentQuestion.key]: value }
+    const proposal = buildProposal(finalPayload)
 
-      if (!response.ok) {
-        throw new Error("Error en la propuesta")
-      }
-
-      const data = await response.json()
-      setMessages((prev) => [
-        ...prev,
-        { role: "bot", text: data.text ?? "Sin respuesta." },
-        {
-          role: "bot",
-          text: "Si quieres, agenda tu entrevista aqui: /reservas",
-        },
-      ])
-    } catch (error) {
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "bot",
-          text: "Hubo un problema generando la propuesta. Intenta de nuevo.",
-        },
-      ])
-    } finally {
-      setLoading(false)
-    }
+    setMessages((prev) => [
+      ...prev,
+      { role: "bot", text: proposal },
+      {
+        role: "bot",
+        text: "Si quieres, agenda tu entrevista aqui: /reservas",
+      },
+    ])
+    setDone(true)
+    setLoading(false)
   }
 
   function handleReset() {
@@ -133,6 +136,7 @@ export default function Chatbot() {
     setInput("")
     setLoading(false)
     setStep(0)
+    setDone(false)
   }
 
   return (
@@ -182,11 +186,12 @@ export default function Chatbot() {
               value={input}
               onChange={(event) => setInput(event.target.value)}
               placeholder={currentQuestion?.placeholder ?? "Escribe tu mensaje"}
-              className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/40"
+              disabled={loading || done}
+              className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/40 disabled:opacity-60"
             />
             <button
               type="submit"
-              disabled={loading || !currentQuestion}
+              disabled={loading || !currentQuestion || done}
               className="rounded-full bg-emerald-300 px-3 py-2 text-xs font-semibold text-black disabled:opacity-60"
             >
               Enviar
