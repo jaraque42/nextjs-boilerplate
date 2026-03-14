@@ -4,6 +4,16 @@ import { useEffect, useMemo, useState } from "react"
 
 const questions = [
   {
+    key: "nombre",
+    label: "Para empezar, ¿cómo te llamas?",
+    placeholder: "Tu nombre",
+  },
+  {
+    key: "email",
+    label: "¿Cuál es tu email de contacto?",
+    placeholder: "tu@email.com",
+  },
+  {
     key: "tipoNegocio",
     label: "Perfecto. ¿Qué tipo de negocio tienes?",
     placeholder: "Ej: restaurante, clínica, e-commerce",
@@ -67,6 +77,8 @@ export default function Chatbot() {
   function buildSummary(payload: Answers) {
     return [
       "Resumen de tu solicitud:",
+      `- Nombre: ${payload.nombre}`,
+      `- Email: ${payload.email}`,
       `- Tipo de negocio: ${payload.tipoNegocio}`,
       `- Número de páginas: ${payload.paginas}`,
       `- Idioma: ${payload.idioma}`,
@@ -117,6 +129,21 @@ export default function Chatbot() {
       { role: "bot", text: summary },
     ])
     setDone(true)
+    try {
+      await fetch("/api/contacto", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(finalPayload),
+      })
+    } catch (error) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "bot",
+          text: "No pude enviar el correo, pero puedes agendar igualmente.",
+        },
+      ])
+    }
     setTimeout(() => {
       window.location.href = "/reservas"
     }, 300)
