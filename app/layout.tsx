@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Chatbot from "./components/Chatbot"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
               <nav className="hidden items-center gap-6 text-sm text-white/70 md:flex">
                 <a href="/" className="hover:text-white">Inicio</a>
+                <a href="/sobre-mi" className="hover:text-white">Sobre mí</a>
                 <a href="/servicios" className="hover:text-white">Servicios</a>
                 <a href="/contacto" className="hover:text-white">Contacto</a>
                 <a href="/reservas" className="hover:text-white">Reservas</a>
@@ -35,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </header>
 
           {children}
+          <Chatbot />
         </div>
       </body>
     </html>
