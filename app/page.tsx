@@ -13,6 +13,8 @@ export default function Home() {
     setResultado(null)
 
     const payload = {
+      nombre: formData.get("nombre"),
+      email: formData.get("email"),
       tipoNegocio: formData.get("tipoNegocio"),
       paginas: formData.get("paginas"),
       idioma: formData.get("idioma"),
@@ -22,18 +24,17 @@ export default function Home() {
     }
 
     try {
-      const res = await fetch("/api/propuesta", {
+      const res = await fetch("/api/contacto", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       })
 
       if (!res.ok) {
-        throw new Error("No se pudo generar la propuesta")
+        throw new Error("No se pudo enviar la solicitud")
       }
 
-      const data = await res.json()
-      setResultado(data.text ?? "Sin respuesta")
+      setResultado("¡Listo! Te contactaremos pronto. Puedes agendar ahora.")
     } catch (err) {
       setError("Hubo un problema. Intenta de nuevo en un minuto.")
     } finally {
@@ -154,6 +155,31 @@ export default function Home() {
           </div>
 
           <form action={onSubmit} className="mt-6 grid gap-4">
+            <div className="grid gap-1">
+              <label className="text-xs uppercase tracking-[0.2em] text-white/50">
+                Nombre
+              </label>
+              <input
+                name="nombre"
+                required
+                className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40"
+                placeholder="Tu nombre"
+              />
+            </div>
+
+            <div className="grid gap-1">
+              <label className="text-xs uppercase tracking-[0.2em] text-white/50">
+                Email
+              </label>
+              <input
+                name="email"
+                type="email"
+                required
+                className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40"
+                placeholder="tu@email.com"
+              />
+            </div>
+
             <div className="grid gap-1">
               <label className="text-xs uppercase tracking-[0.2em] text-white/50">
                 Tipo de negocio
