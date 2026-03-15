@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.99.1",
     "baseline-browser-mapping": "^2.10.7",
     "next": "16.1.6",
     "openai": "^6.29.0",
