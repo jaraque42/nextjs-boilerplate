@@ -7,11 +7,13 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null)
   const [resultado, setResultado] = useState<string | null>(null)
 
-  async function onSubmit(formData: FormData) {
+  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
     setLoading(true)
     setError(null)
     setResultado(null)
 
+    const formData = new FormData(event.currentTarget)
     const payload = {
       nombre: formData.get("nombre"),
       email: formData.get("email"),
@@ -154,7 +156,7 @@ export default function Home() {
             </span>
           </div>
 
-          <form action={onSubmit} className="mt-6 grid gap-4">
+          <form onSubmit={onSubmit} className="mt-6 grid gap-4">
             <div className="grid gap-1">
               <label className="text-xs uppercase tracking-[0.2em] text-white/50">
                 Nombre
