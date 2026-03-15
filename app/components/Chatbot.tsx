@@ -75,7 +75,7 @@ export default function Chatbot() {
               href="/reservas"
               className="mt-4 inline-flex w-full justify-center rounded-full bg-white px-4 py-2 text-xs font-semibold text-black hover:bg-white/90"
             >
-              Agendar entrevista
+              Agendar cita con Juan
             </a>
           )}
         </div>

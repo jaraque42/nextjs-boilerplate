@@ -43,7 +43,7 @@ export default function Servicios() {
                 href="/reservas"
                 className="mt-6 inline-flex text-sm font-semibold text-emerald-200"
               >
-                Agendar entrevista
+                Agendar cita con Juan
               </a>
             </div>
           ))}

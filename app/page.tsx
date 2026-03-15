@@ -21,7 +21,7 @@ export default function Home() {
                 href="/reservas"
                 className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:translate-y-[-1px]"
               >
-                Agendar entrevista
+                Agendar cita con Juan
               </a>
               <a
                 href="/sobre-mi"
@@ -112,7 +112,7 @@ export default function Home() {
             href="/reservas"
             className="rounded-full bg-emerald-300 px-8 py-4 text-sm font-semibold text-black transition hover:scale-[1.02]"
           >
-            Reservar mi cita gratuita
+            Ir a cita con Juan
           </a>
         </div>
       </section>
