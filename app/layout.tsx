@@ -21,12 +21,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <img 
                   src="/logo-emblem.png" 
                   alt="Logo JA" 
-                  className="h-9 w-9 object-contain"
+                  className="h-14 w-14 object-contain"
                 />
                 <img 
                   src="/logo-text.png" 
                   alt="JUAN ARAQUE" 
-                  className="h-6 object-contain"
+                  className="h-10 object-contain"
                 />
                 <a
                   href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "34600000000"}`}
