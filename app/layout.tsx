@@ -44,7 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </nav>
               <a
                 href="/reservas"
-                className="rounded-full bg-white px-4 py-2 text-xs font-semibold text-black"
+                className="rounded-full bg-emerald-300 px-4 py-2 text-xs font-semibold text-black hover:bg-emerald-200 transition-colors"
               >
                 Agendar cita
               </a>

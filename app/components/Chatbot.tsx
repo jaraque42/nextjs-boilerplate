@@ -73,7 +73,7 @@ export default function Chatbot() {
           {sendState === "sent" && (
             <a
               href="/reservas"
-              className="mt-4 inline-flex w-full justify-center rounded-full bg-white px-4 py-2 text-xs font-semibold text-black hover:bg-white/90"
+              className="mt-4 inline-flex w-full justify-center rounded-full bg-emerald-300 px-4 py-2 text-xs font-semibold text-black hover:bg-emerald-200 transition-colors"
             >
               Agendar cita con Juan
             </a>

@@ -19,7 +19,7 @@ export default function Home() {
             <div className="flex flex-wrap gap-3">
               <a
                 href="/reservas"
-                className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:translate-y-[-1px]"
+                className="rounded-full bg-emerald-300 px-6 py-3 text-sm font-semibold text-black transition hover:bg-emerald-200 hover:translate-y-[-1px]"
               >
                 Agendar cita con Juan
               </a>
