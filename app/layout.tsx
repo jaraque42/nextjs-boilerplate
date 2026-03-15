@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <img 
                   src="/logo-unified.png" 
                   alt="JUAN ARAQUE Logo" 
-                  className="h-20 object-contain"
+                  className="h-32 object-contain"
                 />
                 <a
                   href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "34600000000"}`}
