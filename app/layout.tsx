@@ -17,10 +17,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
           <header className="sticky top-0 z-20 border-b border-white/10 bg-black/30 backdrop-blur">
             <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-              <div className="flex items-center gap-3">
-                <div className="text-sm font-semibold tracking-[0.2em] text-white/70">
-                  JUAN ARAQUE
-                </div>
+              <div className="flex items-center gap-4">
+                <img 
+                  src="/logo-unified.png" 
+                  alt="JUAN ARAQUE Logo" 
+                  className="h-20 object-contain"
+                />
                 <a
                   href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "34600000000"}`}
                   target="_blank"
