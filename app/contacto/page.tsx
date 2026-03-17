@@ -91,7 +91,7 @@ export default function Contacto() {
           className="mx-auto max-w-2xl grid gap-6 rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur"
         >
           <div className="grid gap-4 md:grid-cols-2">
-            <div className="grid gap-2">
+            <div className="grid min-w-0 gap-2">
               <label className="text-xs uppercase tracking-[0.2em] text-white/50">
                 Nombre
               </label>
@@ -102,11 +102,11 @@ export default function Contacto() {
                 onChange={(e) =>
                   setFormData({ ...formData, nombre: e.target.value })
                 }
-                className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 focus:border-emerald-300/50 outline-none transition"
+                className="w-full min-w-0 rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none transition focus:border-emerald-300/50"
               />
             </div>
 
-            <div className="grid gap-2">
+            <div className="grid min-w-0 gap-2">
               <label className="text-xs uppercase tracking-[0.2em] text-white/50">
                 Email
               </label>
@@ -117,7 +117,7 @@ export default function Contacto() {
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
-                className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 focus:border-emerald-300/50 outline-none transition"
+                className="w-full min-w-0 rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none transition focus:border-emerald-300/50"
               />
             </div>
           </div>
@@ -132,7 +132,7 @@ export default function Contacto() {
           />
 
           <div className="grid gap-4 md:grid-cols-2">
-            <div className="grid gap-2">
+            <div className="grid min-w-0 gap-2">
               <label className="text-xs uppercase tracking-[0.2em] text-white/50">
                 Tipo de negocio (opcional)
               </label>
@@ -142,11 +142,11 @@ export default function Contacto() {
                 onChange={(e) =>
                   setFormData({ ...formData, tipoNegocio: e.target.value })
                 }
-                className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 focus:border-emerald-300/50 outline-none transition"
+                className="w-full min-w-0 rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none transition focus:border-emerald-300/50"
               />
             </div>
 
-            <div className="grid gap-2">
+            <div className="grid min-w-0 gap-2">
               <label className="text-xs uppercase tracking-[0.2em] text-white/50">
                 Idioma (opcional)
               </label>
@@ -157,13 +157,13 @@ export default function Contacto() {
                 onChange={(e) =>
                   setFormData({ ...formData, idioma: e.target.value })
                 }
-                className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 focus:border-emerald-300/50 outline-none transition"
+                className="w-full min-w-0 rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none transition focus:border-emerald-300/50"
               />
             </div>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="grid gap-2">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid min-w-0 gap-2">
               <label className="text-xs uppercase tracking-[0.2em] text-white/50">
                 Páginas (opcional)
               </label>
@@ -174,11 +174,11 @@ export default function Contacto() {
                 onChange={(e) =>
                   setFormData({ ...formData, paginas: e.target.value })
                 }
-                className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 focus:border-emerald-300/50 outline-none transition"
+                className="w-full min-w-0 rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none transition focus:border-emerald-300/50"
               />
             </div>
 
-            <div className="grid gap-2">
+            <div className="grid min-w-0 gap-2">
               <label className="text-xs uppercase tracking-[0.2em] text-white/50">
                 Plazo (opcional)
               </label>
@@ -189,11 +189,11 @@ export default function Contacto() {
                 onChange={(e) =>
                   setFormData({ ...formData, plazo: e.target.value })
                 }
-                className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 focus:border-emerald-300/50 outline-none transition"
+                className="w-full min-w-0 rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none transition focus:border-emerald-300/50"
               />
             </div>
 
-            <div className="grid gap-2">
+            <div className="grid min-w-0 gap-2">
               <label className="text-xs uppercase tracking-[0.2em] text-white/50">
                 Presupuesto (opcional)
               </label>
@@ -204,7 +204,7 @@ export default function Contacto() {
                 onChange={(e) =>
                   setFormData({ ...formData, presupuesto: e.target.value })
                 }
-                className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 focus:border-emerald-300/50 outline-none transition"
+                className="w-full min-w-0 rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none transition focus:border-emerald-300/50"
               />
             </div>
           </div>
@@ -220,7 +220,7 @@ export default function Contacto() {
               onChange={(e) =>
                 setFormData({ ...formData, objetivo: e.target.value })
               }
-              className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 focus:border-emerald-300/50 outline-none transition"
+              className="w-full min-w-0 rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none transition focus:border-emerald-300/50"
             />
           </div>
 
