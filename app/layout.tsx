@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import Chatbot from "./components/Chatbot"
 import "./globals.css"
 
@@ -36,18 +37,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </a>
               </div>
               <nav className="hidden items-center gap-6 text-sm text-white/70 md:flex">
-                <a href="/" className="hover:text-white">Inicio</a>
-                <a href="/sobre-mi" className="hover:text-white">Sobre mí</a>
-                <a href="/servicios" className="hover:text-white">Servicios</a>
-                <a href="/contacto" className="hover:text-white">Contacto</a>
-                <a href="/reservas" className="hover:text-white">Reservas</a>
+                <Link href="/" className="hover:text-white">Inicio</Link>
+                <Link href="/sobre-mi" className="hover:text-white">Sobre mí</Link>
+                <Link href="/servicios" className="hover:text-white">Servicios</Link>
+                <Link href="/contacto" className="hover:text-white">Contacto</Link>
+                <Link href="/reservas" className="hover:text-white">Reservas</Link>
               </nav>
-              <a
+              <Link
                 href="/reservas"
                 className="rounded-full bg-emerald-300 px-4 py-2 text-xs font-semibold text-black hover:bg-emerald-200 transition-colors"
               >
                 Agendar cita
-              </a>
+              </Link>
             </div>
           </header>
 
