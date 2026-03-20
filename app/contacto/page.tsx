@@ -243,7 +243,7 @@ export default function Contacto() {
               </p>
             ) : (
               <p className="text-sm text-white/40">
-                También puedes escribir por WhatsApp.
+                También puedes escribir por WhatsApp o Instagram.
               </p>
             )}
           </div>
