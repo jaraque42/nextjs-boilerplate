@@ -111,21 +111,28 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2">
+        <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {[
             {
               title: "Next.js Boilerplate",
               description: "Estructura profesional de Next.js optimizada para SEO y performance, con integración de Supabase.",
               url: "https://nextjs-boilerplate-ivory-theta-38.vercel.app/",
-              gradient: "from-emerald-400/20 to-cyan-400/10",
+              image: "/projects/boilerplate.png",
               tag: "Development"
             },
             {
               title: "San Fernando Psicotécnico",
               description: "Landing page estratégica para centro médico, diseñada para maximizar la agenda de citas.",
               url: "https://landing-san-fernando-psicotecnico-s.vercel.app/",
-              gradient: "from-blue-400/20 to-emerald-400/10",
+              image: "/projects/san-fernando.png",
               tag: "Landing Page"
+            },
+            {
+              title: "Helpdesk mitie",
+              description: "Solución a medida para la gestión de incidencias IT, permitiendo un seguimiento eficiente de tickets.",
+              url: "https://web-pruebas-hepldesk.vercel.app/",
+              image: "/projects/helpdesk.png",
+              tag: "Web App"
             },
           ].map((project) => (
             <a
@@ -135,28 +142,23 @@ export default function Home() {
               rel="noopener noreferrer"
               className="group relative flex flex-col overflow-hidden rounded-[32px] border border-white/10 bg-white/5 p-2 transition-all hover:border-white/20 hover:bg-white/[0.07]"
             >
-              <div className={`relative aspect-[16/10] overflow-hidden rounded-[24px] bg-gradient-to-br ${project.gradient} flex items-center justify-center transition-transform duration-500`}>
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className={`relative aspect-[16/10] overflow-hidden rounded-[24px] bg-white/5 flex items-center justify-center transition-transform duration-500`}>
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                {/* Placeholder for project preview */}
-                <div className="relative z-10 flex flex-col items-center gap-4">
-                  <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-md transition-transform duration-500 group-hover:scale-110">
-                    <svg className="h-8 w-8 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                    </svg>
-                  </div>
-                  <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-white/40">Preview coming soon</span>
-                </div>
-
                 {/* Tag */}
-                <div className="absolute left-6 top-6 rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[10px] uppercase tracking-wider text-white/70 backdrop-blur-md">
+                <div className="absolute left-4 top-4 rounded-full border border-white/10 bg-black/40 px-3 py-1 text-[10px] uppercase tracking-wider text-white/90 backdrop-blur-md">
                   {project.tag}
                 </div>
               </div>
 
               <div className="flex flex-1 flex-col p-6">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-semibold text-white group-hover:text-emerald-300 transition-colors">
+                  <h3 className="text-lg font-semibold text-white group-hover:text-emerald-300 transition-colors">
                     {project.title}
                   </h3>
                   <div className="rounded-full bg-white/5 p-2 text-white/40 transition-all group-hover:bg-emerald-400 group-hover:text-black">
@@ -165,7 +167,7 @@ export default function Home() {
                     </svg>
                   </div>
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-white/50">
+                <p className="mt-2 text-sm leading-relaxed text-white/50 line-clamp-2">
                   {project.description}
                 </p>
               </div>
