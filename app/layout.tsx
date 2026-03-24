@@ -1,7 +1,8 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 import Header from "./components/Header"
 import Chatbot from "./components/Chatbot"
+import CookieBanner from "./components/CookieBanner"
+import Footer from "./components/Footer"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -21,6 +22,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
           {children}
           <Chatbot />
+          <Footer />
+          <CookieBanner />
         </div>
       </body>
     </html>

@@ -14,6 +14,7 @@ type Lead = {
 }
 
 export const runtime = "nodejs"
+export const dynamic = "force-dynamic"
 
 export default async function AdminLeadsPage() {
   const supabase = getSupabaseAdmin()
@@ -119,4 +120,3 @@ export default async function AdminLeadsPage() {
     </main>
   )
 }
-
