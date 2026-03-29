@@ -134,6 +134,27 @@ export default function Home() {
               image: "/projects/helpdesk.png",
               tag: "Web App"
             },
+            {
+              title: "La Toscana Colmenar",
+              description: "Web completa para restaurante italiano con carta digital, sistema de reservas y pedidos por WhatsApp.",
+              url: "https://web-toscana-colmenar.vercel.app/",
+              image: "/projects/web-toscana.png",
+              tag: "Restaurante"
+            },
+            {
+              title: "Akiba Art Madrid",
+              description: "Tienda online de cultura japonesa y anime en Madrid, con catálogo de productos y experiencia de compra premium.",
+              url: "https://akiba-art-madrid.vercel.app/",
+              image: "/projects/akiba-art.png",
+              tag: "E-commerce"
+            },
+            {
+              title: "Musevi Obras y Reformas",
+              description: "Web de servicios para empresa de reformas con portafolio de trabajos, solicitud de presupuestos y testimonios.",
+              url: "https://obras-y-reformas-musevi.vercel.app/",
+              image: "/projects/musevi.png",
+              tag: "Servicios"
+            },
           ].map((project) => (
             <a
               key={project.url}
