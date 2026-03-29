@@ -92,7 +92,7 @@ export default function ReservasPage() {
 
             <div className="grid gap-2">
               <label className="text-xs uppercase tracking-[0.2em] text-white/50">
-                Escriba aqui lo que necesita para ponernos en contacto
+                Objetivo de la entrevista
               </label>
               <textarea
                 required
