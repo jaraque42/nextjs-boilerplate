@@ -60,6 +60,17 @@ export default function Header() {
               </svg>
               LinkedIn
             </a>
+            <a
+              href="https://cv-juan-eight.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 rounded-full bg-amber-400/10 px-2 py-1 text-[8px] md:text-[10px] font-bold text-amber-300 transition hover:bg-amber-400/20"
+            >
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/>
+              </svg>
+              Mi CV
+            </a>
           </div>
         </div>
 

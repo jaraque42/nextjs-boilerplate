@@ -11,10 +11,10 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.99.1",
     "baseline-browser-mapping": "^2.10.7",
-    "next": "16.1.6",
+    "next": "15.2.4",
     "openai": "^6.29.0",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "resend": "^6.9.3"
   },
   "devDependencies": {
@@ -23,7 +23,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.1.6",
+    "eslint-config-next": "15.2.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
