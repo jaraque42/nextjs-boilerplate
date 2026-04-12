@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { Analytics } from "@vercel/analytics/next"
 import Header from "./components/Header"
 import Chatbot from "./components/Chatbot"
 import CookieBanner from "./components/CookieBanner"
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
           <CookieBanner />
         </div>
+        <Analytics />
       </body>
     </html>
   )
