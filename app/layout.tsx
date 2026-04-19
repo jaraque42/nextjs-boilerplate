@@ -9,9 +9,9 @@ export const metadata: Metadata = {
   title: "Mi Web de Negocio",
   description: "Descripción de tu negocio",
   icons: {
-    icon: "/logo-unified.png",
-    apple: "/logo-unified.png",
-    shortcut: "/logo-unified.png",
+    icon: "/logo-emblem.png",
+    apple: "/logo-emblem.png",
+    shortcut: "/logo-emblem.png",
   },
 }
 
