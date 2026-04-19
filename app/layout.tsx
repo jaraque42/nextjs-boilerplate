@@ -8,6 +8,11 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "Mi Web de Negocio",
   description: "Descripción de tu negocio",
+  icons: {
+    icon: "/logo-unified.png",
+    apple: "/logo-unified.png",
+    shortcut: "/logo-unified.png",
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

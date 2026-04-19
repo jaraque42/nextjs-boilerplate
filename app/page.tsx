@@ -6,6 +6,9 @@ export default function Home() {
       <section className="mx-auto max-w-6xl">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div className="space-y-6">
+            {/* Logo de la página */}
+            <img src="/logo.png" alt="Logo" className="h-10 w-auto mb-4" />
+            
             <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white/70">
               Studio de webs con IA
             </div>
