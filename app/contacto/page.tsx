@@ -243,7 +243,7 @@ export default function Contacto() {
               </p>
             ) : (
               <p className="text-sm text-white/40">
-                También puedes escribir por WhatsApp o Instagram, o{" "}
+                También puedes escribir por Instagram, o{" "}
                 <a 
                   href="https://cv-juan-eight.vercel.app/" 
                   target="_blank" 

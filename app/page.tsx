@@ -136,7 +136,7 @@ export default function Home() {
             },
             {
               title: "La Toscana Colmenar",
-              description: "Web completa para restaurante italiano con carta digital, sistema de reservas y pedidos por WhatsApp.",
+              description: "Web completa para restaurante italiano con carta digital y sistema de reservas.",
               url: "https://web-toscana-colmenar.vercel.app/",
               image: "/projects/web-toscana.png",
               tag: "Restaurante"
