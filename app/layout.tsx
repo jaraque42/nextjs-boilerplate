@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import Header from "./components/Header"
 import Chatbot from "./components/Chatbot"
 import CookieBanner from "./components/CookieBanner"
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
           <CookieBanner />
         </div>
+        <SpeedInsights />
       </body>
     </html>
   )
